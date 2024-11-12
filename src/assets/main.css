@@ -1,0 +1,71 @@
+/* @import './kade.css'; */
+/* 在main.css或其他全局CSS文件中 */
+#app {
+  /* margin: 0 auto;
+  font-weight: normal; */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* body[arco-theme='dark'] {
+  --color-white: rgba(255, 255, 255, 0.9);
+  --color-black:red;
+  --color-border: red;
+  border: 1px solid #4d4d52;
+} */
+
+/* 大屏幕（桌面）样式 */
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .sidebar {
+    width: 25%;
+  }
+
+  .content {
+    width: 70%;
+  }
+}
+
+/* 中等屏幕（平板）样式 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar,
+  .content {
+    width: 90%;
+  }
+}
+
+/* 小屏幕（手机）样式 */
+@media (max-width: 767px) {
+  .container {
+    display: block;
+  }
+
+  .sidebar,
+  .content {
+    width: 100%;
+  }
+}
+
+.arco-layout-sider-children {
+  height: 98%;
+  overflow: auto;
+}
+
+.arco-page-header {
+  padding: 0px 0;
+}
