@@ -60,5 +60,5 @@ Unexpected side effect in "currentLangageClass" computed property Vue 的副作�
 # basics template successful
 
 ```go
-v1.0.9
+v1.1.0
 ```
