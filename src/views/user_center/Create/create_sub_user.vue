@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import { CREATE_USER } from '@/api/mcenter/usercenter/user'
 import { CHECK_PERMISSION } from '@/api/mcenter/policy/policy'
 import { Notification } from '@arco-design/web-vue'
+// import '@/assets/common/layout.css'; /* 根据你的项目结构调整路径 */
 
 const currentBackgroundClass = computed(() => {
   return app.value.isBackground
@@ -247,7 +248,6 @@ const reload = () => {
 </template>
 
 <style scoped>
-@import '@/assets/common/layout.css'; /* 根据你的项目结构调整路径 */
 .page {
   padding: 0px;
   margin: 0 auto; /* 自动水平居中 */

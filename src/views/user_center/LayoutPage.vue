@@ -19,6 +19,7 @@ import { defineComponent, ref } from 'vue'
 import { Message } from '@arco-design/web-vue'
 // import { IconHome, IconCalendar } from '@arco-design/web-vue/es/icon'
 import { app } from '@/stores/localstorage'
+// import '@/assets/common/layout.css'; /* 根据你的项目结构调整路径 */
 
 export default defineComponent({
   components: {
@@ -80,6 +81,7 @@ export default defineComponent({
   }
 })
 </script>
+
 
 <style scoped>
 @import '@/assets/common/layout.css'; /* 根据你的项目结构调整路径 */

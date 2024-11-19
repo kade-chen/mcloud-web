@@ -94,5 +94,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-@import "@/assets/common/layout.css"; /* 根据你的项目结构调整路径 */
+@import '@/assets/common/layout.css'; /* 根据你的项目结构调整路径 */
 </style>
