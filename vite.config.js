@@ -8,9 +8,11 @@ export default defineConfig({
   plugins: [vue()],
   // 强制预构建插件包
   server: {
+    port: 80, // 将端口修改为你需要的
+    host: '0.0.0.0',
     proxy: {
       '/mcenter/api/v1': {
-        target: 'http://localhost:8010'
+        target: 'http://kade.com:8010'
       },
       // '/cc': {
       //   target: 'http://127.0.0.1:80101'

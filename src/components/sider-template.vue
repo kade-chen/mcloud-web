@@ -22,22 +22,6 @@
         <IconCalendar />
         Menu 2
       </a-menu-item>
-      <a-sub-menu key="1">
-        <template #title>
-          <span><IconCalendar />Navigation 1</span>
-        </template>
-        <a-menu-item key="1_1">Menu 1</a-menu-item>
-        <a-menu-item key="1_2">Menu 2</a-menu-item>
-        <a-sub-menu key="2" title="Navigation 2">
-          <a-menu-item key="2_1">Menu 1</a-menu-item>
-          <a-menu-item key="2_2">Menu 2</a-menu-item>
-        </a-sub-menu>
-        <a-sub-menu key="3" title="Navigation 3">
-          <a-menu-item key="3_1">Menu 1</a-menu-item>
-          <a-menu-item key="3_2">Menu 2</a-menu-item>
-          <a-menu-item key="3_3">Menu 3</a-menu-item>
-        </a-sub-menu>
-      </a-sub-menu>
       <a-sub-menu key="4">
         <template #title>
           <span><IconCalendar />{{ $t('user_center') }}</span>
@@ -49,6 +33,25 @@
           {{ $t('user_Create') }}
         </a-menu-item>
         <!-- <a-menu-item key="4_3">Menu 3</a-menu-item> -->
+      </a-sub-menu>
+
+      <a-sub-menu key="1">
+        <template #title>
+          <span><IconCalendar />{{ $t("Vertex_AI") }}</span>
+        </template>
+        <a-menu-item v-if="showCreateVertex" key="1_1" @click="navigateTo({ name: 'VertexInfo' })"
+          >Gemini</a-menu-item
+        >
+        <a-menu-item key="1_2">Menu 2</a-menu-item>
+        <a-sub-menu key="2" title="Navigation 2">
+          <a-menu-item key="2_1">Menu 1</a-menu-item>
+          <a-menu-item key="2_2">Menu 2</a-menu-item>
+        </a-sub-menu>
+        <a-sub-menu key="3" title="Navigation 3">
+          <a-menu-item key="3_1">Menu 1</a-menu-item>
+          <a-menu-item key="3_2">Menu 2</a-menu-item>
+          <a-menu-item key="3_3">Menu 3</a-menu-item>
+        </a-sub-menu>
       </a-sub-menu>
     </a-menu>
   </a-layout-sider>
@@ -136,17 +139,32 @@ export default defineComponent({
         // Message.error(`查询用户失败1: ${error}`)
         // router.push({ name: 'PermissionDeny' })
       }
+    },
+    async CHECK_VERTEX_PERMISSION() {
+      try {
+        const resp = await CHECK_PERMISSION({ role: '', permission: 'vertex.create' })
+        console.log('check create user permission', resp)
+        // groupLabels.value = resp
+      } catch (error) {
+        // console.error('Error:', error);
+        this.showCreateVertex = false
+        // Notification.error(`查询用户组失败: ${error}`)
+        // Message.error(`查询用户失败1: ${error}`)
+        // router.push({ name: 'PermissionDeny' })
+      }
     }
   },
   data() {
     return {
       showListUser: true,
-      showCreateUser: true
+      showCreateUser: true,
+      showCreateVertex: true
     }
   },
   mounted() {
     this.CHECK_LISTUSER_PERMISSION() // 使用 this 调用 methods 中返回的方法
     this.CHECK_CREATEUSER_PERMISSION() // 使用 this 调用 methods 中返回的方法
+    this.CHECK_VERTEX_PERMISSION() // 使用 this 调用 methods 中返回的方法
   },
   watch: {
     showListUser(showListUser) {
@@ -163,6 +181,14 @@ export default defineComponent({
       if (showCreateUser) {
         // 这里可以执行相关操作
         this.CHECK_CREATEUSER_PERMISSION()
+      }
+    },
+    showCreateVertex(showCreateVertex) {
+      // 当 showListUser 发生变化时，这个函数会被调用
+      // console.log('showListUser changed:', showListUser)
+      if (showCreateVertex) {
+        // 这里可以执行相关操作
+        this.CHECK_VERTEX_PERMISSION()
       }
     }
   }

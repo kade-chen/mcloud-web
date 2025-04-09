@@ -12,7 +12,7 @@
       </a-menu-item>
       <a-sub-menu key="1">
         <template #title>
-          <span><IconCalendar />Navigation 1</span>
+          <span><IconCalendar />{{ $t("Vertex_AI") }}</span>
         </template>
         <a-menu-item key="1_1">Menu 1</a-menu-item>
         <a-menu-item key="1_2">Menu 2</a-menu-item>

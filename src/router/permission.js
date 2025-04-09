@@ -16,6 +16,7 @@ export var beforeEachHanler = async function (to, from, next) {
       // /login?name=TagList
       // console.log('sssss2') //ServiceDashboard
       try {
+        // console.log('v1') //ServiceDashboard
         await VERITY_TOKEN() // 调用验证令牌的异步函数
         app.value.isLogin = true
       } catch (error) {
@@ -46,6 +47,7 @@ export var beforeEachHanler = async function (to, from, next) {
     if (app.value.isLogin == true) {
       // console.log('sssss1') //ServiceDashboard
       try {
+        // console.log('v2') //ServiceDashboard
         await VERITY_TOKEN() // 调用验证令牌的异步函数
       } catch (error) {
         console.error('Token 失效,请重新登陆, error', error)
@@ -68,6 +70,7 @@ export var beforeEachHanler = async function (to, from, next) {
     if (app.value.isLogin == true) {
       console.log('sssss2') //ServiceDashboard
       try {
+        // console.log('v3') //ServiceDashboard
         await VERITY_TOKEN() // 调用验证令牌的异步函数
         next({
           name: 'ServiceDashboard',

@@ -5,4 +5,5 @@ export default {
   user_center: "User Center",
   user_List: "User List",
   user_Create: "Create User",
+  Vertex_AI: "Vertex AI"
 };

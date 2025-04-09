@@ -3,10 +3,14 @@ import LoginPage from '../views/login/LoginPage.vue'
 import LoginPage1 from '../views/login/LoginPage1.vue'
 import LoginPage2 from '../views/login/LoginPage2.vue'
 import LoginPage3 from '../views/login/LoginPage3.vue'
+// import LoginPage4 from '../views/login/LoginPage4.vue'
 import { beforeEachHanler } from './permission'
 
 import console from '@/router/cosole'
 import user_center from '@/router/user_center'
+import vertex from '@/router/vertex'
+import SttV2WebSocketUpload from '@/views/login/WebSocketUpload.vue'
+import WebSocketSteamStt from '@/views/login/WebSocketSteamStt.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,14 +43,29 @@ const router = createRouter({
     },
     {
       // 示例：将特定路径重定向到后端
-      path: '/home2',
-      name: 'home2',
-      // redirect: { path: '/mcenter/api/v1/token/1' }
+      path: '/SpeechToTextV1',
+      name: 'home3',
+      // redirect: { path: 'SpeechToTextV1' }
       component: LoginPage3
+    },
+    {
+      // 示例：将特定路径重定向到后端
+      path: '/SttV2WebSocketUpload',
+      name: 'SttV2WebSocketUpload',
+      // redirect: { path: '/mcenter/api/v1/token/1' }
+      component: SttV2WebSocketUpload
+    },
+    {
+      // 示例：将特定路径重定向到后端
+      path: '/stream',
+      name: 'stream',
+      // redirect: { path: '/mcenter/api/v1/token/1' }
+      component: WebSocketSteamStt
     },
     //console home
     console,
     user_center,
+    vertex, // vertex page
     // 其他通用页面
     {
       path: '/errors/403',
