@@ -62,4 +62,3 @@ Unexpected side effect in "currentLangageClass" computed property Vue 的副作�
 ```go
 v1.1.0
 ```
-test1
