@@ -69,3 +69,13 @@ body {
 .arco-page-header {
   padding: 0px 0;
 }
+
+
+
+.arco-form-item-content-flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}

@@ -12,7 +12,7 @@ export default defineConfig({
     host: '0.0.0.0',
     proxy: {
       '/mcenter/api/v1': {
-        target: 'http://kade.com:8010'
+        target: 'http://127.0.0.1:8010'
       },
       // '/cc': {
       //   target: 'http://127.0.0.1:80101'
